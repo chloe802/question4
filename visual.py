@@ -11,15 +11,14 @@ def draw_topology(topo: 'Topology', controller: 'Controller'):
         print("Topology is empty — nothing to draw.")
         return
 
-    # Create a consistent layout
+
     pos = nx.spring_layout(G, seed=42)  # fixed seed so positions are stable
 
     fig, ax = plt.subplots()
 
-    # Draw nodes
+
     nx.draw_networkx_nodes(G, pos, node_size=500, ax=ax)
 
-    # Draw edges with utilization coloring
     edges = G.edges(data=True)
     colors = [data.get('utilization', 0) for (_, _, data) in edges]
     nx.draw_networkx_edges(G, pos, edge_color=colors, edge_cmap=plt.cm.viridis, width=2, ax=ax)

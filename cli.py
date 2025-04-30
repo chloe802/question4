@@ -113,4 +113,11 @@ class SDNCli(cmd.Cmd):
 
     # start the command loop if the script is run directly
     if __name__ == '__main__':
+        # import hashlib
+        # student_id = "893618581"
+        # secret = "NeoDDaBRgX5a9"
+        # combined = student_id + secret
+        # hash_val = hashlib.sha256(combined.encode()).hexdigest()
+        # print(hash_val)
+
         SDNCli().cmdloop()
